@@ -7,11 +7,19 @@ def sublists(lst):
     Returns: (list of list of values) list of all sublists of lst.
     """
 
-    if len(lst) == 0:
+       if len(lst) == 0:
         return []
+    if len(lst) == 1:
+        return [lst,[]]
+    if len(lst) == 2:
+        return [lst, [lst[0]],[lst[1]],[]]
+
     else:
-        value = lst[0]
-        return sublists(lst[1:]) + (value + sublists(lst[1:]))
+        first, *rst = lst
+        rest_case = sublists(rst)
+        first_case = [[first]+ case for case in rest_case]
+
+        return first_case + rest_case
 
 
 #############################################################

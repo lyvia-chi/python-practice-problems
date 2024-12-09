@@ -11,7 +11,7 @@ def sublists(lst):
         return []
     else:
         value = lst[0]
-        return sublists(lst[1:]) + (value + sublists(lst[1:])
+        return sublists(lst[1:]) + (value + sublists(lst[1:]))
 
 
 #############################################################
